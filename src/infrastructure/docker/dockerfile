@@ -1,0 +1,19 @@
+FROM gcc:8.2.0
+RUN apt-get update && apt-get install -y \
+  nasm \
+  genisoimage \
+  bison \
+  flex \
+  libgmp3-dev \
+  libmpc-dev \
+  texinfo \
+  libcloog-isl-dev \
+  libisl-dev \
+  grub \
+  grub-pc-bin \
+  qemu \
+  gdb \
+  xorriso
+ADD gdb_startup.gdb /root/gdb_startup.gdb
+ADD compiler.sh /root/compiler.sh
+RUN sh /root/compiler.sh
